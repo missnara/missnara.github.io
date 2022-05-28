@@ -177,7 +177,7 @@
         [0.9090909090909093, 'rgb(103,0,31)'],
         [1.0, 'rgb(103,0,31)']]
 
-        t = idx.map((item) => { return `Original Covid+ cases: ${positive_cases[item]} <br></br>Zip code: ${zip_codes[item]}` })
+        t = idx.map((item) => { return `actual COVID+ cases: ${positive_cases[item]} <br></br>ZIP code: ${zip_codes[item]}` })
 
 
         d3.json("https://raw.githubusercontent.com/fedhere/PUI2015_EC/master/mam1612_EC/nyc-zip-code-tabulation-areas-polygons.geojson").then(function (jsonData) {
@@ -207,11 +207,11 @@
                 // just the Postal code. So we can say that this attribute is optional
                 // text: unpack(rows, 'State'),
                 // colorscale: color_map,
-                colorscale: 'Rainbow',
+                colorscale: 'Reds',
                 showscale: false,
                 zmin: 0,
                 zmax: 3400,
-                hovertemplate: 'Noisy    Covid+ cases: %{z:.2f}' +
+                hovertemplate: 'noisy  COVID+ cases: %{z:.2f}' +
                     '<br>%{text}</br>' +
                     '<extra></extra>',
                 text: t
@@ -219,14 +219,14 @@
 
             var layout_noisy = {
                 title: {
-                    text: 'noisy data',
+                    text: 'noisy counts of COVID+ cases <br></br>by ZIP codes',
                     xref: 'paper',
                     x: 0.5,
                     y: 0.01
                 },
                 mapbox: { style: 'carto-positron', zoom: 9, center: { lat: 40.69, lon: -73.98 } },
-                width: 420,
-                height: 600,
+                // width: 420,
+                // height: 600,
                 margin: { l: 0, r: 2, t: 0, b: 30 },
                 hoverlabel: {
                     bgcolor: 'rgba(255,255,255,0.75)',
@@ -250,7 +250,7 @@
                 // just the Postal code. So we can say that this attribute is optional
                 // text: unpack(rows, 'State'),
                 // colorscale: color_map,
-                colorscale: 'Rainbow',
+                colorscale: 'Reds',
                 // showscale: false,
                 zmin: 0,
                 zmax: 3400,
@@ -261,15 +261,15 @@
 
             var layout_original = {
                 title: {
-                    text: 'original data',
+                    text: 'actual counts of COVID+ cases <br></br>by ZIP codes',
                     xref: 'paper',
                     x: 0.5,
                     y: 0.01
                 },
                 mapbox: { style: 'carto-positron', zoom: 9, center: { lat: 40.69, lon: -73.99 } },
-                width: 504,
-                height: 600,
-                margin: { l: 0, r: 0, t: 0, b: 30 },
+                // width: 504,
+                // height: 600,
+                margin: { l: 0, r: 0, t: 0, b: 60 },
                 hoverlabel: {
                     bgcolor: 'rgba(255,255,255,0.75)',
                 }
