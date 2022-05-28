@@ -134,7 +134,7 @@
 
         }
 
-        t=idx.map((item) => {return `Original Covid+ cases: ${positive_cases[item]} <br></br>Zip code: ${zip_codes[item]}`})
+        t=idx.map((item) => {return `actual COVID+ cases: ${positive_cases[item]} <br></br>ZIP code: ${zip_codes[item]}`})
         console.log(t)
         var trace1 = {
             x: idx,
@@ -145,7 +145,7 @@
                 color: 'royalblue',
                 width: 2
             },
-            name: 'original data',
+            name: 'actual COVID+ counts',
             hoverinfo: 'skip'
         };
 
@@ -155,7 +155,7 @@
             mode: 'none',
             type: 'scatter',
             fill: 'toself',
-            name: 'error bound',
+            name: 'noise bound',
             hoverinfo: 'skip',
             color: '#fff877'
         };
@@ -170,8 +170,8 @@
                 width: 2,
                 dash: 'dot'
             },
-            name: 'noisy data',
-            hovertemplate: 'Noisy    Covid+ cases: %{y:.2f}' +
+            name: 'noisy COVID+ counts',
+            hovertemplate: 'noisy  COVID+ cases: %{y:.2f}' +
                         '<br>%{text}</br>'+
                         '<extra></extra>',
             text: t,
@@ -183,7 +183,10 @@
         var layout = {
             showlegend: true,
             legend: {
-                orientation: 'h'
+                orientation: 'h',
+                x:0,
+                y:1.1
+                
             },
 
             // hovermode : "x unified",
@@ -193,7 +196,10 @@
                 bgcolor: 'rgba(255,255,255,0.75)',
             },
             yaxis: {
-                range: [-50, 80]
+                range: [-50, 80],
+                title:{
+                    text:'count of COVID+ cases'
+                }
             
             },
 
@@ -201,7 +207,14 @@
                 tickmode: "array",
                 tickvals: idx, //real idx should be fed here
                 ticktext: zip_codes,
-                visible: false
+                showticklabels: false,
+                tickfont:{
+                    size: 4
+                },
+                title:{
+                    text:'ZIP code',
+                    // standoff: 10
+                },
             }
         };
         Plotly.newPlot('myDiv', data, layout);
