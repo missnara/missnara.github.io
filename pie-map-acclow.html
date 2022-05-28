@@ -222,7 +222,7 @@
         [0.9090909090909093, 'rgb(103,0,31)'],
         [1.0, 'rgb(103,0,31)']]
 
-        t = idx.map((item) => { return `Original Covid+ cases: ${positive_cases[item]} <br></br>Zip code: ${zip_codes[item]}` })
+        t = idx.map((item) => { return `actual COVID+ cases: ${positive_cases[item]} <br></br>ZIP code: ${zip_codes[item]}` })
 
 
         d3.json("https://raw.githubusercontent.com/fedhere/PUI2015_EC/master/mam1612_EC/nyc-zip-code-tabulation-areas-polygons.geojson").then(function (jsonData) {
@@ -256,7 +256,7 @@
                 showscale: false,
                 zmin: 0,
                 zmax: 55,
-                hovertemplate: 'Noisy    Covid+ cases: %{z:.2f}' +
+                hovertemplate: 'noisy  COVID+ cases: %{z:.2f}' +
                     '<br>%{text}</br>' +
                     '<extra></extra>',
                 text: t
@@ -264,7 +264,7 @@
 
             var layout_noisy = {
                 title: {
-                    text: 'noisy data',
+                    text: 'noisy counts',
                     xref: 'paper',
                     x: 0.5,
                     y: 0.01
@@ -306,7 +306,7 @@
 
             var layout_original = {
                 title: {
-                    text: 'original data',
+                    text: 'actual counts',
                     xref: 'paper',
                     x: 0.5,
                     y: 0.01
